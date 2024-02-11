@@ -1,0 +1,18 @@
+import XCTest
+@testable import YourProject
+
+class YourViewControllerSnapshotTests: XCTestCase {
+    
+    func test_yourFileName_assertCondition() {
+            let sut = makeSUT()
+            let navigation = MockNavigationController(rootViewController: sut)
+            assert(snapshot: navigation.snapshot(for: .iPad(style: .light)), named: "FILE_NAME_SCREEN_DEVICE_NAME")
+    }
+
+// MARK: Helpers
+    private func makeSUT() -> YourViewController {
+        let sut = YourUIComposer.createiewScreenModule()
+        sut.loadViewIfNeeded()
+        return sut
+    }
+}
